@@ -1,0 +1,14 @@
+#navbar {
+  background-color: #0061ff;
+}
+
+ul li a {
+  font-size: 25px;
+  color: #ffffff;
+}
+
+#header {
+  background-color: #00ff87;
+  text-align: center;
+  color: #0061ff;
+}

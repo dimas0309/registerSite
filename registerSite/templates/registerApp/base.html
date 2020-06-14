@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Index</title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+          crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous">
+  </script>
+  </head>
+  <body>
+    <nav id="navbar" class="navbar navbar-light">
+          <ul class="nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'index' %}">Main</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'registerApp:about' %}">About</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="">Providers</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="">Customers</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'admin:index'%}">Admin</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'registerApp:register'%}">Sign up</a>
+            </li>
+            {% if user.is_authenticated %}
+           <li class="nav-item active">
+             <a class="nav-link" href="{% url 'logout'%}">Logout</a>
+           </li>
+           {% else %}
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'registerApp:user_login' %}">Login</a>
+            </li>
+            {% endif %}
+          </ul>
+    </nav>
+    <div class="container">
+    </div>
+    {% block body_block %}
+    {% endblock %}
+    <script type="text/javascript">
+
+           // change color when mouse over
+           $("ul").mouseover(function(){
+             $("a").css("color","#60efff")
+           });
+
+           $("ul").mouseout(function(){
+             $("a").css("color","#ffffff")
+           });
+           
+    </script>
+  </body>
+</html>

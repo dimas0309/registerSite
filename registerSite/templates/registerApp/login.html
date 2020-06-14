@@ -1,0 +1,17 @@
+{% extends 'registerApp/base.html' %}
+{% block body_block %}
+<div class="jumbotron" style="background-color: #00ff87">
+  <h1 style="text-align: center; color: #0061ff;">Please Login</h1>
+  <br>
+  <form style="text-align: center;" action="{% url 'registerApp:user_login' %}" method="post">
+    {% csrf_token %}
+    <label style="color: #0061ff;" for="username">Username:</label>
+    <input class="form-control" type="text" name="username" placeholder="Enter Username">
+    <br>
+    <label style="color: #0061ff;" for="password">Password:</label>
+    <input class="form-control" type="password" name="password">
+    <br>
+    <input class="btn btn-primary" type="submit" value="Login">
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'registerApp/base.html'%}
+{% load bootstrap4 %}
+{% block body_block %}
+<div class="jumbotron" style="background-color: #00ff87">
+  {% if registered %}
+     <h1 style="text-align: center; color: #0061ff;">Thank you for signup!</h1>
+  {% else %}
+     <h1 style="text-align: center;color: #0061ff;">SignUp Here!</h1>
+     <br><br>
+     <form enctype="multipart/form-data" method="post" style="color:#0061ff;">
+       {% csrf_token %}
+       {% bootstrap_form user_form %}
+       <input class="btn btn-primary" type="submit" value="SignUp">
+     </form>
+  {% endif %}
+</div>
+{% endblock %}
